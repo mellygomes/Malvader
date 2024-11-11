@@ -33,7 +33,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    <Component class="javax.swing.ButtonGroup" name="bGtipo">
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenu">
       <SubComponents>
@@ -106,9 +106,9 @@
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTusuario" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
-                              <Component id="jTsenha" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTusuario" pref="140" max="32767" attributes="0"/>
+                              <Component id="jPsenha" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -149,12 +149,12 @@
                           <Component id="jTusuario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTsenha" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPsenha" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jRfuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jRcliente" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -192,13 +192,11 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBloginActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTusuario">
-          <Properties>
-            <Property name="columns" type="int" value="4"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTsenha">
           <Properties>
             <Property name="columns" type="int" value="4"/>
           </Properties>
@@ -208,7 +206,7 @@
         <Component class="javax.swing.JRadioButton" name="jRfuncionario">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="buttonGroup1"/>
+              <ComponentRef name="bGtipo"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Funcion&#xe1;rio"/>
           </Properties>
@@ -216,10 +214,18 @@
         <Component class="javax.swing.JRadioButton" name="jRcliente">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="buttonGroup1"/>
+              <ComponentRef name="bGtipo"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cliente"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="jPsenha">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPsenhaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
