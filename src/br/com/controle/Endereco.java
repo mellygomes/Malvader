@@ -1,13 +1,14 @@
 package br.com.controle;
 
 //@author emanuelly
-public class Endereco {
+public class Endereco extends Cliente{
     String cep;
     String local;
     int numeroCasa;
     String bairro;
     String cidade;
     String uf;
+    String endereco;
     public String getCep() {
             return cep;	
     }
@@ -44,4 +45,13 @@ public class Endereco {
     public void setUf(String uf) {
             this.uf = uf;
     }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+    
 }
