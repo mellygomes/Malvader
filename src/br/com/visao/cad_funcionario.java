@@ -51,7 +51,7 @@ public class cad_funcionario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel4.setText("Abertura de Conta");
+        jLabel4.setText("Cadastrar Funcionário");
 
         jBregistrar.setText("Registrar");
 

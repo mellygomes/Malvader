@@ -94,22 +94,42 @@ public static void inserir(Cliente c) throws Exception {
     return c;
 }
 
-//	public static Funcionario findBy(String cpf) throws Exception {		
-//		String query = "SELECT * FROM Funcionario where id_usuario = ?";		
-//		try (Connection con = ConexaoBanco.conectar()) {
-//			PreparedStatement pst = con.prepareStatement(query);
-//			pst.setString(1, cpf);
-//			ResultSet rs = pst.executeQuery();
-//			Funcionario f = new Funcionario();
-//			while (rs.next()) {
-//				f = (Funcionario) rs;
-//			}
-//			ConexaoBanco.desconectar(con);
-//			return f;
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			return null;
-//		}
-//	}
+    public static Cliente findById(int id) throws Exception {		
+        Cliente cliente = new Cliente();
 
+        String queryC = "SELECT fk_usuario_id FROM Cliente WHERE id_cliente = ?";		
+        String queryU = "SELECT * FROM Usuario WHERE id_usuario = ?";		
+
+        try (Connection con = DAO.conectar()) {
+
+            PreparedStatement pst = con.prepareStatement(queryC);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                int fk = rs.getInt("fk_usuario_id");
+
+                PreparedStatement pst2 = con.prepareStatement(queryU);
+                pst2.setInt(1, fk);
+                ResultSet rs2 = pst2.executeQuery();
+
+                if (rs2.next()) {
+                    cliente.setId_usuario(rs2.getInt("id_usuario"));
+                    cliente.setNome_usuario(rs2.getString("nome_usuario"));
+                    cliente.setCpf_usuario(rs2.getString("cpf_usuario"));
+                    cliente.setNascimento_usuario(LocalDate.parse(String.valueOf((rs2.getDate("nascimento_usuario")))));
+                    cliente.setTelefone_usuario(rs2.getString("telefone_usuario"));
+                    cliente.setTipo_usuario(rs2.getString("tipo_usuario"));
+                    cliente.setSenha_cliente(rs2.getString("senha_usuario"));
+                    cliente.setUser_usuario(rs2.getString("user_usuario"));
+                    DAO.desconectar(con);			
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return cliente;		
+    }
 }

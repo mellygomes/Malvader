@@ -5,14 +5,9 @@
 package br.com.visao;
 
 import br.com.controle.Cliente;
-import br.com.controle.Conta;
 import br.com.controle.Endereco;
 import br.com.entidade.ClienteDAO;
-import br.com.entidade.DAO;
-import java.text.DateFormat;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -77,8 +72,7 @@ public class cad_cliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Abertura de Conta");
+        jLabel4.setText("Cadastro de conta");
 
         jBregistrar.setBackground(new java.awt.Color(0, 0, 102));
         jBregistrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

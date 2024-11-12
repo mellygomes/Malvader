@@ -46,7 +46,7 @@ public class Endereco extends Cliente{
             this.uf = uf;
     }
 
-    public String getEndereco() {
+    public String getEndereco(String text) {
         return endereco;
     }
 
