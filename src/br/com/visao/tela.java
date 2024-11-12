@@ -32,6 +32,7 @@ public class tela extends javax.swing.JFrame {
         jRfuncionario = new javax.swing.JRadioButton();
         jRcliente = new javax.swing.JRadioButton();
         jPsenha = new javax.swing.JPasswordField();
+        jBcadastro = new javax.swing.JButton();
         jMenu = new javax.swing.JMenuBar();
         jMenu_func = new javax.swing.JMenu();
         jMenu_cliente = new javax.swing.JMenu();
@@ -76,6 +77,13 @@ public class tela extends javax.swing.JFrame {
             }
         });
 
+        jBcadastro.setText("Cadastro");
+        jBcadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBcadastroActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -85,6 +93,7 @@ public class tela extends javax.swing.JFrame {
         jDesktopPane1.setLayer(jRfuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jRcliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPsenha, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jBcadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -108,7 +117,9 @@ public class tela extends javax.swing.JFrame {
                                 .addComponent(jRfuncionario))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addGap(139, 139, 139)
-                                .addComponent(jBlogin)))
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jBcadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBlogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,20 +147,67 @@ public class tela extends javax.swing.JFrame {
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRfuncionario)
                     .addComponent(jRcliente))
-                .addGap(32, 32, 32)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBlogin)
-                    .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jBlogin)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBcadastro)))
+                .addGap(46, 46, 46))
         );
 
         jMenu_func.setText("Funcionário");
+        jMenu_func.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_funcMenuSelected(evt);
+            }
+        });
+        jMenu_func.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_funcActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_func);
 
         jMenu_cliente.setText("Cliente");
+        jMenu_cliente.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_clienteMenuSelected(evt);
+            }
+        });
+        jMenu_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_clienteActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_cliente);
 
         jMenu_sair.setText("Sair");
+        jMenu_sair.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_sairMenuSelected(evt);
+            }
+        });
+        jMenu_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_sairActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_sair);
 
         setJMenuBar(jMenu);
@@ -210,6 +268,44 @@ public class tela extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPsenhaActionPerformed
 
+    private void jMenu_funcMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_funcMenuSelected
+        // TODO add your handling code here:
+        funcionario f = new funcionario();
+        f.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu_funcMenuSelected
+
+    private void jMenu_funcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_funcActionPerformed
+
+    }//GEN-LAST:event_jMenu_funcActionPerformed
+
+    private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
+        // TODO add your handling code here:
+        cliente c = new cliente();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu_clienteMenuSelected
+
+    private void jMenu_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu_clienteActionPerformed
+
+    private void jMenu_sairMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_sairMenuSelected
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenu_sairMenuSelected
+
+    private void jMenu_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_sairActionPerformed
+
+    }//GEN-LAST:event_jMenu_sairActionPerformed
+
+    private void jBcadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcadastroActionPerformed
+        // TODO add your handling code here:
+        cad_cliente c = new cad_cliente();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBcadastroActionPerformed
+
     //@param args the command line arguments
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -245,6 +341,7 @@ public class tela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bGtipo;
+    private javax.swing.JButton jBcadastro;
     private javax.swing.JButton jBlogin;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;

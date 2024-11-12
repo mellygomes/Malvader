@@ -4,6 +4,8 @@
  */
 package br.com.visao;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author User
@@ -48,21 +50,46 @@ public class funcionario extends javax.swing.JFrame {
 
         GB_funcionario.add(jRB_abertura);
         jRB_abertura.setText("Abertura de Conta");
+        jRB_abertura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRB_aberturaActionPerformed(evt);
+            }
+        });
 
         GB_funcionario.add(jRB_encerramento);
         jRB_encerramento.setText("Encerramento de Conta");
+        jRB_encerramento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRB_encerramentoActionPerformed(evt);
+            }
+        });
 
         GB_funcionario.add(jRB_consulta);
         jRB_consulta.setText("Consulta de Dados");
+        jRB_consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRB_consultaActionPerformed(evt);
+            }
+        });
 
         GB_funcionario.add(jRB_cadastro);
         jRB_cadastro.setText("Cadastro de Funcionário");
+        jRB_cadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRB_cadastroActionPerformed(evt);
+            }
+        });
 
         GB_funcionario.add(jRB_gerar_relatorio);
         jRB_gerar_relatorio.setText("Geração de Relatórios ");
 
         GB_funcionario.add(jRBsair);
         jRBsair.setText("Sair");
+        jRBsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRBsairActionPerformed(evt);
+            }
+        });
 
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLerro, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -118,12 +145,54 @@ public class funcionario extends javax.swing.JFrame {
         );
 
         jMenu_func.setText("Funcionário");
+        jMenu_func.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_funcMenuSelected(evt);
+            }
+        });
+        jMenu_func.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_funcActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_func);
 
         jMenu_cliente.setText("Cliente");
+        jMenu_cliente.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_clienteMenuSelected(evt);
+            }
+        });
+        jMenu_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_clienteActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_cliente);
 
         jMenu_sair.setText("Sair");
+        jMenu_sair.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_sairMenuSelected(evt);
+            }
+        });
+        jMenu_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_sairActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_sair);
 
         setJMenuBar(jMenu);
@@ -146,6 +215,70 @@ public class funcionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu_funcMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_funcMenuSelected
+        // TODO add your handling code here:
+        funcionario f = new funcionario();
+        f.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu_funcMenuSelected
+
+    private void jMenu_funcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_funcActionPerformed
+
+    }//GEN-LAST:event_jMenu_funcActionPerformed
+
+    private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
+        // TODO add your handling code here:
+        cliente c = new cliente();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu_clienteMenuSelected
+
+    private void jMenu_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu_clienteActionPerformed
+
+    private void jMenu_sairMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_sairMenuSelected
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenu_sairMenuSelected
+
+    private void jMenu_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_sairActionPerformed
+
+    }//GEN-LAST:event_jMenu_sairActionPerformed
+
+    private void jRBsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBsairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jRBsairActionPerformed
+
+    private void jRB_aberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_aberturaActionPerformed
+        // TODO add your handling code here:
+        abertura_conta a = new abertura_conta();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jRB_aberturaActionPerformed
+
+    private void jRB_encerramentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_encerramentoActionPerformed
+        // TODO add your handling code here:
+//        cliente c = new cliente();
+//        c.setVisible(true);
+//        this.dispose();
+    }//GEN-LAST:event_jRB_encerramentoActionPerformed
+
+    private void jRB_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_consultaActionPerformed
+        // TODO add your handling code here:
+//        cliente c = new cliente();
+//        c.setVisible(true);
+//        this.dispose();
+    }//GEN-LAST:event_jRB_consultaActionPerformed
+
+    private void jRB_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_cadastroActionPerformed
+        // TODO add your handling code here:
+        cad_funcionario c = new cad_funcionario();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jRB_cadastroActionPerformed
 
     /**
      * @param args the command line arguments

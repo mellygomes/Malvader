@@ -27,6 +27,7 @@ public class cliente extends javax.swing.JFrame {
     private void initComponents() {
 
         BG_cliente = new javax.swing.ButtonGroup();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jRB_deposito = new javax.swing.JRadioButton();
         jRB_saque = new javax.swing.JRadioButton();
@@ -41,6 +42,8 @@ public class cliente extends javax.swing.JFrame {
         jMenu_func = new javax.swing.JMenu();
         jMenu_cliente = new javax.swing.JMenu();
         jMenu_sair = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +78,11 @@ public class cliente extends javax.swing.JFrame {
         BG_cliente.add(jRBsair);
         jRBsair.setText("Sair");
         jRBsair.setAlignmentY(1.0F);
+        jRBsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRBsairActionPerformed(evt);
+            }
+        });
 
         BG_cliente.add(jRB_saldo);
         jRB_saldo.setText("Saldo");
@@ -137,12 +145,54 @@ public class cliente extends javax.swing.JFrame {
         );
 
         jMenu_func.setText("Funcionário");
+        jMenu_func.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_funcMenuSelected(evt);
+            }
+        });
+        jMenu_func.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_funcActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_func);
 
         jMenu_cliente.setText("Cliente");
+        jMenu_cliente.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_clienteMenuSelected(evt);
+            }
+        });
+        jMenu_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_clienteActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_cliente);
 
         jMenu_sair.setText("Sair");
+        jMenu_sair.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu_sairMenuSelected(evt);
+            }
+        });
+        jMenu_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_sairActionPerformed(evt);
+            }
+        });
         jMenu.add(jMenu_sair);
 
         setJMenuBar(jMenu);
@@ -170,6 +220,42 @@ public class cliente extends javax.swing.JFrame {
     private void jRB_depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_depositoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRB_depositoActionPerformed
+
+    private void jMenu_funcMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_funcMenuSelected
+        // TODO add your handling code here:
+        funcionario f = new funcionario();
+        f.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu_funcMenuSelected
+
+    private void jMenu_funcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_funcActionPerformed
+
+    }//GEN-LAST:event_jMenu_funcActionPerformed
+
+    private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
+        // TODO add your handling code here:
+        cliente c = new cliente();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu_clienteMenuSelected
+
+    private void jMenu_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu_clienteActionPerformed
+
+    private void jMenu_sairMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_sairMenuSelected
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenu_sairMenuSelected
+
+    private void jMenu_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_sairActionPerformed
+
+    }//GEN-LAST:event_jMenu_sairActionPerformed
+
+    private void jRBsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBsairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jRBsairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +298,7 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLerro;
     private javax.swing.JMenuBar jMenu;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenu_cliente;
     private javax.swing.JMenu jMenu_func;
     private javax.swing.JMenu jMenu_sair;
