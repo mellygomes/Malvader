@@ -29,15 +29,18 @@ public class cliente extends javax.swing.JFrame {
         BG_cliente = new javax.swing.ButtonGroup();
         jMenuItem1 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jRB_deposito = new javax.swing.JRadioButton();
-        jRB_saque = new javax.swing.JRadioButton();
-        jRB_extrato = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        jRB_limite = new javax.swing.JRadioButton();
-        jRB_consultar = new javax.swing.JRadioButton();
-        jRBsair = new javax.swing.JRadioButton();
-        jRB_saldo = new javax.swing.JRadioButton();
         jLerro = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jBdepositar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTvalor_deposito = new javax.swing.JTextField();
+        jBsaque = new javax.swing.JButton();
+        jBdeposito = new javax.swing.JButton();
+        jBconsultar = new javax.swing.JButton();
+        jBlimite = new javax.swing.JButton();
+        jBsair = new javax.swing.JButton();
+        jLsaldo = new javax.swing.JLabel();
         jMenu = new javax.swing.JMenuBar();
         jMenu_func = new javax.swing.JMenu();
         jMenu_cliente = new javax.swing.JMenu();
@@ -47,101 +50,150 @@ public class cliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BG_cliente.add(jRB_deposito);
-        jRB_deposito.setText("Depósito");
-        jRB_deposito.setAlignmentY(1.0F);
-        jRB_deposito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRB_depositoActionPerformed(evt);
-            }
-        });
-
-        BG_cliente.add(jRB_saque);
-        jRB_saque.setText("Saque");
-        jRB_saque.setAlignmentY(1.0F);
-
-        BG_cliente.add(jRB_extrato);
-        jRB_extrato.setText("Extrato");
-        jRB_extrato.setAlignmentY(1.0F);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cliente");
 
-        BG_cliente.add(jRB_limite);
-        jRB_limite.setText("Limite");
-        jRB_limite.setAlignmentY(1.0F);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel1.setText("Saldo:");
 
-        BG_cliente.add(jRB_consultar);
-        jRB_consultar.setText("Consultar ");
-        jRB_consultar.setAlignmentY(1.0F);
+        jBdepositar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBdepositar.setText("Depositar");
 
-        BG_cliente.add(jRBsair);
-        jRBsair.setText("Sair");
-        jRBsair.setAlignmentY(1.0F);
-        jRBsair.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel2.setText("Valor de Depósito:");
+
+        jBsaque.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBsaque.setText("Saque");
+        jBsaque.setMaximumSize(new java.awt.Dimension(80, 23));
+        jBsaque.setMinimumSize(new java.awt.Dimension(80, 23));
+        jBsaque.setName(""); // NOI18N
+        jBsaque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRBsairActionPerformed(evt);
+                jBsaqueActionPerformed(evt);
             }
         });
 
-        BG_cliente.add(jRB_saldo);
-        jRB_saldo.setText("Saldo");
-        jRB_saldo.setAlignmentY(1.0F);
+        jBdeposito.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBdeposito.setText("Depósito");
+        jBdeposito.setMaximumSize(new java.awt.Dimension(80, 23));
+        jBdeposito.setMinimumSize(new java.awt.Dimension(80, 23));
+        jBdeposito.setName(""); // NOI18N
 
-        jDesktopPane1.setLayer(jRB_deposito, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRB_saque, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRB_extrato, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jBconsultar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBconsultar.setText("Consultar");
+        jBconsultar.setName(""); // NOI18N
+
+        jBlimite.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBlimite.setText("Limite");
+        jBlimite.setMaximumSize(new java.awt.Dimension(80, 23));
+        jBlimite.setMinimumSize(new java.awt.Dimension(80, 23));
+        jBlimite.setName(""); // NOI18N
+
+        jBsair.setBackground(new java.awt.Color(255, 51, 51));
+        jBsair.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBsair.setForeground(new java.awt.Color(255, 255, 255));
+        jBsair.setText("Sair");
+        jBsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBsairActionPerformed(evt);
+            }
+        });
+
+        jLsaldo.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLsaldo.setForeground(new java.awt.Color(255, 255, 51));
+        jLsaldo.setText("0.00");
+
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRB_limite, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRB_consultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRBsair, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRB_saldo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLerro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jBdepositar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jTvalor_deposito, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jBsaque, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jBdeposito, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jBconsultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jBlimite, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jBsair, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLsaldo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jRB_saldo)
-                        .addComponent(jRBsair)
-                        .addComponent(jRB_limite)
-                        .addComponent(jRB_extrato)
-                        .addComponent(jRB_saque)
-                        .addComponent(jRB_consultar)
-                        .addComponent(jRB_deposito))
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                        .addGap(118, 118, 118)
+                                        .addComponent(jBsair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jBdeposito, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jBlimite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTvalor_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jBdepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                        .addGap(92, 92, 92)
+                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jBconsultar, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                                            .addComponent(jBsaque, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                                        .addGap(69, 69, 69))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jRB_saldo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRB_deposito)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRB_saque)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRB_extrato)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRB_consultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRB_limite)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRBsair)
-                .addGap(29, 29, 29)
-                .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLsaldo)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jBdepositar)
+                    .addComponent(jTvalor_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBdeposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBsaque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBlimite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBconsultar))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jBsair)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jMenu_func.setText("Funcionário");
@@ -201,25 +253,20 @@ public class cliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRB_depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_depositoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRB_depositoActionPerformed
 
     private void jMenu_funcMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_funcMenuSelected
         // TODO add your handling code here:
@@ -252,10 +299,14 @@ public class cliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu_sairActionPerformed
 
-    private void jRBsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBsairActionPerformed
+    private void jBsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsairActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jRBsairActionPerformed
+    }//GEN-LAST:event_jBsairActionPerformed
+
+    private void jBsaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsaqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBsaqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,20 +345,23 @@ public class cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BG_cliente;
+    private javax.swing.JButton jBconsultar;
+    private javax.swing.JButton jBdepositar;
+    private javax.swing.JButton jBdeposito;
+    private javax.swing.JButton jBlimite;
+    private javax.swing.JButton jBsair;
+    private javax.swing.JButton jBsaque;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLerro;
+    private javax.swing.JLabel jLsaldo;
     private javax.swing.JMenuBar jMenu;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenu_cliente;
     private javax.swing.JMenu jMenu_func;
     private javax.swing.JMenu jMenu_sair;
-    private javax.swing.JRadioButton jRB_consultar;
-    private javax.swing.JRadioButton jRB_deposito;
-    private javax.swing.JRadioButton jRB_extrato;
-    private javax.swing.JRadioButton jRB_limite;
-    private javax.swing.JRadioButton jRB_saldo;
-    private javax.swing.JRadioButton jRB_saque;
-    private javax.swing.JRadioButton jRBsair;
+    private javax.swing.JTextField jTvalor_deposito;
     // End of variables declaration//GEN-END:variables
 }

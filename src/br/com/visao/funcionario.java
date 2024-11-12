@@ -45,10 +45,16 @@ public class funcionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Sitka Text", 3, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Funcionário");
 
+        jLerro.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jLerro.setForeground(new java.awt.Color(255, 255, 255));
+
         GB_funcionario.add(jRB_abertura);
+        jRB_abertura.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jRB_abertura.setForeground(new java.awt.Color(255, 255, 255));
         jRB_abertura.setText("Abertura de Conta");
         jRB_abertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +63,8 @@ public class funcionario extends javax.swing.JFrame {
         });
 
         GB_funcionario.add(jRB_encerramento);
+        jRB_encerramento.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jRB_encerramento.setForeground(new java.awt.Color(255, 255, 255));
         jRB_encerramento.setText("Encerramento de Conta");
         jRB_encerramento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +73,8 @@ public class funcionario extends javax.swing.JFrame {
         });
 
         GB_funcionario.add(jRB_consulta);
+        jRB_consulta.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jRB_consulta.setForeground(new java.awt.Color(255, 255, 255));
         jRB_consulta.setText("Consulta de Dados");
         jRB_consulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +83,8 @@ public class funcionario extends javax.swing.JFrame {
         });
 
         GB_funcionario.add(jRB_cadastro);
+        jRB_cadastro.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jRB_cadastro.setForeground(new java.awt.Color(255, 255, 255));
         jRB_cadastro.setText("Cadastro de Funcionário");
         jRB_cadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,9 +93,13 @@ public class funcionario extends javax.swing.JFrame {
         });
 
         GB_funcionario.add(jRB_gerar_relatorio);
+        jRB_gerar_relatorio.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jRB_gerar_relatorio.setForeground(new java.awt.Color(255, 255, 255));
         jRB_gerar_relatorio.setText("Geração de Relatórios ");
 
         GB_funcionario.add(jRBsair);
+        jRBsair.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jRBsair.setForeground(new java.awt.Color(255, 51, 0));
         jRBsair.setText("Sair");
         jRBsair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,10 +120,6 @@ public class funcionario extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(86, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,17 +129,19 @@ public class funcionario extends javax.swing.JFrame {
                         .addGap(131, 131, 131)
                         .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jRB_encerramento)
-                    .addComponent(jRB_abertura)
                     .addComponent(jRB_consulta)
-                    .addComponent(jRB_gerar_relatorio))
+                    .addComponent(jRB_gerar_relatorio)
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4)
+                        .addComponent(jRB_abertura)))
                 .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel4)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(jRB_abertura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRB_encerramento)
@@ -141,7 +155,7 @@ public class funcionario extends javax.swing.JFrame {
                 .addComponent(jRBsair)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
+                .addGap(68, 68, 68))
         );
 
         jMenu_func.setText("Funcionário");
