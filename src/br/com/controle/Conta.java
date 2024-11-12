@@ -4,6 +4,7 @@ package br.com.controle;
 public abstract class Conta {
     private int numero_conta;
     private String agencia_conta;
+    private String tipo_conta;
     private double saldo_conta;
     private Cliente cliente;
 
@@ -19,6 +20,15 @@ public abstract class Conta {
     public void setAgencia_conta(String agencia_conta) {
         this.agencia_conta = agencia_conta;
     }
+
+    public String getTipo_conta() {
+        return tipo_conta;
+    }
+
+    public void setTipo_conta(String tipo_conta) {
+        this.tipo_conta = tipo_conta;
+    }
+       
     public double getSaldo_conta() {
         return saldo_conta;
     }
