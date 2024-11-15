@@ -10,12 +10,12 @@ import javax.swing.JFrame;
  *
  * @author User
  */
-public class funcionario extends javax.swing.JFrame {
+public class FuncionarioMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form funcionario
      */
-    public funcionario() {
+    public FuncionarioMenu() {
         initComponents();
     }
 
@@ -43,7 +43,7 @@ public class funcionario extends javax.swing.JFrame {
         jMenu_cliente = new javax.swing.JMenu();
         jMenu_sair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel4.setFont(new java.awt.Font("Sitka Text", 3, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,7 +232,7 @@ public class funcionario extends javax.swing.JFrame {
 
     private void jMenu_funcMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_funcMenuSelected
         // TODO add your handling code here:
-        funcionario f = new funcionario();
+        FuncionarioMenu f = new FuncionarioMenu();
         f.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu_funcMenuSelected
@@ -243,7 +243,7 @@ public class funcionario extends javax.swing.JFrame {
 
     private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
         // TODO add your handling code here:
-        cliente c = new cliente();
+        ClienteMenu c = new ClienteMenu();
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu_clienteMenuSelected
@@ -268,7 +268,7 @@ public class funcionario extends javax.swing.JFrame {
 
     private void jRB_aberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_aberturaActionPerformed
         // TODO add your handling code here:
-        abertura_conta a = new abertura_conta();
+        AberturaConta a = new AberturaConta();
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jRB_aberturaActionPerformed
@@ -289,7 +289,7 @@ public class funcionario extends javax.swing.JFrame {
 
     private void jRB_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_cadastroActionPerformed
         // TODO add your handling code here:
-        cad_funcionario c = new cad_funcionario();
+        CadFuncionario c = new CadFuncionario();
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jRB_cadastroActionPerformed
@@ -311,20 +311,21 @@ public class funcionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FuncionarioMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FuncionarioMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FuncionarioMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FuncionarioMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new funcionario().setVisible(true);
+                new FuncionarioMenu().setVisible(true);
             }
         });
     }

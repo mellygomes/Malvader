@@ -128,10 +128,7 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jBregistrar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jBsair" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jBsair" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLerro" min="-2" pref="145" max="-2" attributes="0"/>

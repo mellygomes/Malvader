@@ -8,12 +8,12 @@ package br.com.visao;
  *
  * @author User
  */
-public class cad_funcionario extends javax.swing.JFrame {
+public class CadFuncionario extends javax.swing.JFrame {
 
     /**
      * Creates new form cad_funcionario
      */
-    public cad_funcionario() {
+    public CadFuncionario() {
         initComponents();
     }
 
@@ -161,9 +161,7 @@ public class cad_funcionario extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBregistrar)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jBsair)
-                                .addGap(1, 1, 1)))
+                            .addComponent(jBsair))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))))
@@ -288,7 +286,7 @@ public class cad_funcionario extends javax.swing.JFrame {
 
     private void jMenu_funcMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_funcMenuSelected
         // TODO add your handling code here:
-        funcionario f = new funcionario();
+        FuncionarioMenu f = new FuncionarioMenu();
         f.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu_funcMenuSelected
@@ -299,7 +297,7 @@ public class cad_funcionario extends javax.swing.JFrame {
 
     private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
         // TODO add your handling code here:
-        cliente c = new cliente();
+        ClienteMenu c = new ClienteMenu();
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu_clienteMenuSelected
@@ -334,21 +332,23 @@ public class cad_funcionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cad_funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cad_funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cad_funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cad_funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new cad_funcionario().setVisible(true);
+                new CadFuncionario().setVisible(true);
             }
         });
     }
