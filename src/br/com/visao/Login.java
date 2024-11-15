@@ -5,10 +5,10 @@ import br.com.controle.Funcionario;
 import javax.swing.*;
 
 //@author User
-public class tela extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     //Creates new form tela
-    public tela() {
+    public Login() {
         initComponents();
     }
 
@@ -237,6 +237,9 @@ public class tela extends javax.swing.JFrame {
             f.login(jPsenha.getPassword());
             //teste
             if (f.login(jPsenha.getPassword())) {
+                FuncionarioMenu ftela = new FuncionarioMenu();
+                ftela.show();
+                this.dispose();
                 JOptionPane.showMessageDialog(null, "Logado!");
             } else {
                 JOptionPane.showMessageDialog(null, "O login falhou! Verifique a senha e usuário inserido.");
@@ -249,6 +252,9 @@ public class tela extends javax.swing.JFrame {
             boolean login = c.login(jPsenha.getPassword());
             //teste
             if (login == true) {
+                ClienteMenu ftela = new ClienteMenu();
+                ftela.show();
+                this.dispose();
                 JOptionPane.showMessageDialog(null, "Logado!");
             } else {
                 JOptionPane.showMessageDialog(null, "O login falhou! Verifique a senha e usuário inserido.");
@@ -270,7 +276,7 @@ public class tela extends javax.swing.JFrame {
 
     private void jMenu_funcMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_funcMenuSelected
         // TODO add your handling code here:
-        funcionario f = new funcionario();
+        FuncionarioMenu f = new FuncionarioMenu();
         f.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu_funcMenuSelected
@@ -281,7 +287,7 @@ public class tela extends javax.swing.JFrame {
 
     private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
         // TODO add your handling code here:
-        cliente c = new cliente();
+        ClienteMenu c = new ClienteMenu();
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu_clienteMenuSelected
@@ -301,7 +307,7 @@ public class tela extends javax.swing.JFrame {
 
     private void jBcadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcadastroActionPerformed
         // TODO add your handling code here:
-        cad_cliente c = new cad_cliente();
+        CadCliente c = new CadCliente();
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBcadastroActionPerformed
@@ -321,20 +327,21 @@ public class tela extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new tela().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
