@@ -1,6 +1,9 @@
 package br.com.controle;
 
 //@author emanuelly
+
+import br.com.entidade.ContaDAO;
+
 public class Funcionario extends Usuario {
     private String codigoFuncionario;
     private String cargo;
@@ -33,7 +36,7 @@ public class Funcionario extends Usuario {
 
     //métodos 
     public void abrirConta(Conta conta) {
-
+        ContaDAO.save(conta);
     }
 
     public void encerrarConta(Conta conta) {

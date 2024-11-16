@@ -24,7 +24,7 @@ public class DAO {
             con.close(); //fechando o ambiente de conexão
             System.out.println("Execucao da Query fechada\n");
         } catch (SQLException e){
-            throw new RuntimeException("Erro ao conectar ao banco de dados: "+ e);
+            throw new RuntimeException("Erro ao desconectar ao banco de dados: "+ e);
         }
     }
 }

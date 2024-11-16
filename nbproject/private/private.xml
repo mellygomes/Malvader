@@ -3,23 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/entidade/ContaPoupancaDAO.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/entidade/DAO.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/visao/CadCliente.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/visao/CadFuncionario.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/controle/ContaCorrente.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/visao/FuncionarioMenu.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/controle/Cliente.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/controle/Conta.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/entidade/TesteCon.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/entidade/ClienteDAO.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/visao/Login.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/visao/ClienteMenu.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/visao/Lista.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/controle/Funcionario.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/entidade/ContaCorrenteDAO.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/entidade/FuncionarioDAO.java</file>
-            <file>file:/C:/Users/emanu/OneDrive/Documentos/Malvader/src/br/com/visao/AberturaConta.java</file>
+            <file>file:/C:/Users/emanu/OneDrive/Documentos/BD/Malvader/src/br/com/visao/Lista.java</file>
+            <file>file:/C:/Users/emanu/OneDrive/Documentos/BD/Malvader/src/br/com/visao/FuncionarioMenu.java</file>
+            <file>file:/C:/Users/emanu/OneDrive/Documentos/BD/Malvader/src/br/com/visao/Login.java</file>
         </group>
     </open-files>
 </project-private>

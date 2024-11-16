@@ -126,22 +126,4 @@ public class FuncionarioDAO {
 
         return f;
     }
-
-//	public static Funcionario findBy(String cpf) throws Exception {		
-//	String query = "SELECT * FROM Funcionario where id_usuario = ?";		
-//	try (Connection con = ConexaoBanco.conectar()) {
-//		PreparedStatement pst = con.prepareStatement(query);
-//		pst.setString(1, cpf);
-//		ResultSet rs = pst.executeQuery();
-//		Funcionario f = new Funcionario();
-//		while (rs.next()) {
-//			f = (Funcionario) rs;
-//		}
-//		ConexaoBanco.desconectar(con);
-//		return f;
-//	} catch (SQLException e) {
-//		e.printStackTrace();
-//		return null;
-//	}
-//}
 }
