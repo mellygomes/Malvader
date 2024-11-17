@@ -277,10 +277,9 @@ public class FuncionarioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jRB_aberturaActionPerformed
 
     private void jRB_encerramentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_encerramentoActionPerformed
-        // TODO add your handling code here:
-//        cliente c = new cliente();
-//        c.setVisible(true);
-//        this.dispose();
+        EncerramentoConta frame = new EncerramentoConta();
+        frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jRB_encerramentoActionPerformed
 
     private void jRB_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_consultaActionPerformed

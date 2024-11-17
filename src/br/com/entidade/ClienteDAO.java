@@ -122,48 +122,59 @@ public class ClienteDAO {
     public static Cliente findById(int id) throws Exception {		
         Cliente cliente = new Cliente();
 
+        String queryCliente = "SELECT * FROM Cliente WHERE id_cliente = ?";
         String queryU = "SELECT * FROM Usuario WHERE id_usuario = ?";
         String queryEnd = "SELECT * FROM Endereco WHERE fk_usuario_id = ?";
 
         try (Connection con = DAO.conectar()) {
-            PreparedStatement pst = con.prepareStatement(queryU);
+            PreparedStatement pst = con.prepareStatement(queryCliente);
             pst.setInt(1, id);
-            ResultSet rs = pst.executeQuery();
+            ResultSet rs0 = pst.executeQuery();
+            
+            if(rs0.next()) {
+                int key = rs0.getInt("fk_usuario_id");
+                
+                PreparedStatement pst1 = con.prepareStatement(queryU);
+                pst1.setInt(1, key);
+                ResultSet rs = pst1.executeQuery();
 
-            if (rs.next()) {
-                cliente.setId_usuario(rs.getInt("id_usuario"));
-                cliente.setNome_usuario(rs.getString("nome_usuario"));
-                cliente.setCpf_usuario(rs.getString("cpf_usuario"));
-                cliente.setNascimento_usuario(LocalDate.parse(rs.getString("nascimento_usuario")));
-                cliente.setTelefone_usuario(rs.getString("telefone_usuario"));
-                cliente.setTipo_usuario(rs.getString("tipo_usuario"));
-                cliente.setSenha_cliente(rs.getString("senha_usuario"));
-                cliente.setUser_usuario(rs.getString("user_usuario"));
+                if (rs.next()) {
+                    cliente.setId_usuario(rs.getInt("id_usuario"));
+                    cliente.setNome_usuario(rs.getString("nome_usuario"));
+                    cliente.setCpf_usuario(rs.getString("cpf_usuario"));
+                    cliente.setNascimento_usuario(LocalDate.parse(rs.getString("nascimento_usuario")));
+                    cliente.setTelefone_usuario(rs.getString("telefone_usuario"));
+                    cliente.setTipo_usuario(rs.getString("tipo_usuario"));
+                    cliente.setSenha_cliente(rs.getString("senha_usuario"));
+                    cliente.setUser_usuario(rs.getString("user_usuario"));
 
-                PreparedStatement pst3 = con.prepareStatement(queryEnd);
-                pst3.setInt(1, id);
-                ResultSet rs3 = pst3.executeQuery();
+                    PreparedStatement pst3 = con.prepareStatement(queryEnd);
+                    pst3.setInt(1, cliente.getId_usuario());
+                    ResultSet rs3 = pst3.executeQuery();
 
-                if (rs3.next()) {
-                    Endereco end = new Endereco();
+                    if (rs3.next()) {
+                        Endereco end = new Endereco();
 
-                    end.setCep(rs3.getString("cep"));
-                    end.setLocal(rs3.getString("local"));
-                    end.setBairro(rs3.getString("bairro"));
-                    end.setNumeroCasa(rs3.getInt("numero"));
-                    end.setCidade(rs3.getString("cidade"));
-                    end.setUf(rs3.getString("uf"));
+                        end.setCep(rs3.getString("cep"));
+                        end.setLocal(rs3.getString("local"));
+                        end.setBairro(rs3.getString("bairro"));
+                        end.setNumeroCasa(rs3.getInt("numero"));
+                        end.setCidade(rs3.getString("cidade"));
+                        end.setUf(rs3.getString("uf"));
 
-                    cliente.setEndereco_usuario(end);
+                        cliente.setEndereco_usuario(end);
 
-                    DAO.desconectar(con);	
+                        DAO.desconectar(con);	
+                    } else {
+                        System.out.println("Erro ao obter o endereco do usuario");
+                        return null;
+                    }
                 } else {
-                    System.out.println("Erro ao obter o endereco do usuario");
+                    System.out.println("Erro ao obter o usuario (findbyid");
                     return null;
                 }
             } else {
-                System.out.println("Erro ao obter o usuario (findbyid");
-                return null;
+            
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -173,7 +184,9 @@ public class ClienteDAO {
     }
     
     public static Cliente findByCpf(String cpf) throws Exception {		
-	String query = "SELECT * FROM Usuario where cpf_usuario = ?";
+	String query = "SELECT * FROM Usuario WHERE cpf_usuario = ?";
+        String queryCliente = "SELECT * FROM Cliente WHERE fk_usuario_id = ?";
+
         Cliente cliente = new Cliente();
         
 	try (Connection con = DAO.conectar()) {
@@ -184,17 +197,29 @@ public class ClienteDAO {
             if (rs.next()) {
                 int id = rs.getInt("id_usuario");
                 
-                cliente = ClienteDAO.findById(id);
-                DAO.desconectar(con);
-                
+                PreparedStatement pst1 = con.prepareStatement(queryCliente);
+                pst1.setInt(1, id);
+                ResultSet rs1 = pst1.executeQuery();
+
+                if (rs1.next()) {
+                    int key = rs1.getInt("id_cliente");
+                    
+                    cliente = ClienteDAO.findById(key);
+                    DAO.desconectar(con);
+                    
+                } else {
+                    System.out.println("Erro ao obter o cliente (findbycpf)");
+                    return null;
+                }
+              
                 return cliente;
             } else {
                 System.out.println("Erro ao obter id do usuario (findbycpf)");
                 return null;
             }
 	} catch (SQLException e) {
-		e.printStackTrace();
-		return null;
+            e.printStackTrace();
+            return null;
 	}
     }
     

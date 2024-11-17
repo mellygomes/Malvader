@@ -3,6 +3,7 @@ package br.com.controle;
 //@author emanuelly
 
 import br.com.entidade.ContaDAO;
+import br.com.entidade.FuncionarioDAO;
 
 public class Funcionario extends Usuario {
     private String codigoFuncionario;
@@ -43,8 +44,8 @@ public class Funcionario extends Usuario {
 
     }
 
-    public Conta consultarDadosConta(int numeroConta) {
-        return null;
+    public Conta consultarDadosConta(int numeroConta) throws Exception {
+        return ContaDAO.findByNumero(numeroConta);
     }
 
     public Cliente consultarDadosCliente(int idCliente) {
@@ -59,11 +60,12 @@ public class Funcionario extends Usuario {
 
     }
 
-    public void cadastrarFuncionario(Funcionario funcionario) {
-
+    public void cadastrarFuncionario(Funcionario funcionario) throws Exception {
+        FuncionarioDAO.save(funcionario);
+        
     }
 
     public void gerarRelatorioMovimentacao() {
-
+        
     }
 }

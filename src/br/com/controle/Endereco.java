@@ -10,7 +10,7 @@ public class Endereco extends Cliente{
     String uf;
     String endereco;
     public String getCep() {
-            return cep;	
+        return cep;	
     }
     public void setCep(String cep) {
             this.cep = cep;
