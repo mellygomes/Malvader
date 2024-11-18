@@ -2,8 +2,11 @@ package br.com.visao;
 
 import br.com.controle.Cliente;
 import br.com.controle.Funcionario;
+import br.com.entidade.ClienteDAO;
 import java.awt.Dimension;
 import java.awt.GradientPaint;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 //@author User
@@ -222,13 +225,13 @@ public class Login extends javax.swing.JFrame {
             Funcionario f = new Funcionario();
             f.setUser_usuario(jTusuario.getText());
             f.setTipo_usuario("FUNCIONARIO");
-            f.login(jPsenha.getPassword());
-            //teste
-            if (f.login(jPsenha.getPassword())) {
+            
+            boolean login = f.login(String.valueOf(jPsenha.getPassword()));
+
+            if (login) {
                 FuncionarioMenu ftela = new FuncionarioMenu();
-                ftela.show();
+                ftela.setVisible(true);                
                 this.dispose();
-                JOptionPane.showMessageDialog(null, "Logado!");
             } else {
                 JOptionPane.showMessageDialog(null, "O login falhou! Verifique a senha e usuário inserido.");
             }
@@ -237,13 +240,22 @@ public class Login extends javax.swing.JFrame {
             Cliente c = new Cliente();
             c.setUser_usuario(jTusuario.getText());
             c.setTipo_usuario("CLIENTE");
-            boolean login = c.login(jPsenha.getPassword());
-            //teste
-            if (login == true) {
-                ClienteMenu ftela = new ClienteMenu();
-                ftela.show();
-                this.dispose();
-                JOptionPane.showMessageDialog(null, "Logado!");
+            boolean login = c.login(String.valueOf(jPsenha.getPassword()));
+            
+            if (login) {                
+                try {
+                    Cliente clientelogado = ClienteDAO.findByUser(c.getUser_usuario());
+                    ClienteMenu ftela = new ClienteMenu(clientelogado);
+                    //ftela.setUserlogado(clientelogado); //passar o usuario logado para a proxima tela
+                    
+                    ftela.setVisible(true);
+                    this.dispose();
+                    
+                } catch (Exception ex) {
+                    System.out.println("Erro aaaaaaa");
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             } else {
                 JOptionPane.showMessageDialog(null, "O login falhou! Verifique a senha e usuário inserido.");
             }
@@ -260,9 +272,9 @@ public class Login extends javax.swing.JFrame {
 
     private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
         // TODO add your handling code here:
-        ClienteMenu c = new ClienteMenu();
-        c.setVisible(true);
-        this.dispose();
+        //ClienteMenu c = new ClienteMenu();
+        //c.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_jMenu_clienteMenuSelected
     
     private void jMenu_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_clienteActionPerformed
@@ -297,36 +309,11 @@ public class Login extends javax.swing.JFrame {
 
     //@param args the command line arguments
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
             }
-        });
+        });  
     }
   
     // Variables declaration - do not modify//GEN-BEGIN:variables

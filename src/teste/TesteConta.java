@@ -27,8 +27,8 @@ public class TesteConta {
 //            ContaDAO.save(cc);
 
 
-        ContaPoupanca c = (ContaPoupanca) ContaDAO.findByNumero(202050);
-        System.out.println(" "+ c.getTaxaRendimento());    
+        ContaCorrente c = (ContaCorrente) ContaDAO.findByClienteId(2);
+        System.out.println(" "+ c.getAgencia_conta());    
     
     }
 }

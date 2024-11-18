@@ -189,5 +189,82 @@ public class ContaDAO {
         }
         return null;
     }
+    
+   public static Conta findByClienteId(int id) throws Exception {       
+        String queryConta = "SELECT * FROM Conta WHERE fk_cliente_id = ?";
+        try (Connection con = DAO.conectar()) {
+
+            PreparedStatement pst = con.prepareStatement(queryConta);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                String tipo = rs.getString("tipo_conta");
+
+                if (tipo.equals("CORRENTE")) {
+                    ContaCorrente c = new ContaCorrente();
+
+                    c.setAgencia_conta(rs.getString("agencia_conta"));
+                    c.setSaldo_conta(rs.getDouble("saldo"));
+                    c.setTipo_conta(tipo);
+                    int fk_cliente = rs.getInt("fk_cliente_id");
+
+                    Cliente cliente = ClienteDAO.findById(fk_cliente);
+                    c.setCliente(cliente);
+                    int pk = rs.getInt(1);
+
+                    String queryCcorrente = "SELECT * FROM Conta_Corrente WHERE fk_conta_id = ?";
+                    PreparedStatement pst2 = con.prepareStatement(queryCcorrente);
+                    pst2.setInt(1, pk);
+                    ResultSet rs2 = pst2.executeQuery();
+
+                    if (rs2.next()) {
+                        c.setLimite(rs2.getDouble("limite"));
+                        c.setDataVencimento(LocalDate.parse(rs2.getString("data_vencimento")));	
+                        DAO.desconectar(con);
+                        return c;
+                    } else {
+                        System.out.println("Erro ao obter fk da conta");
+                        return null;
+                    }
+
+                } else if (tipo.equals("POUPANCA")) {
+                    ContaPoupanca c = new ContaPoupanca();
+
+                    c.setAgencia_conta(rs.getString("agencia_conta"));
+                    c.setSaldo_conta(rs.getDouble("saldo"));
+                    c.setTipo_conta(tipo);
+                    int fk_cliente = rs.getInt("fk_cliente_id");
+
+                    Cliente cliente = ClienteDAO.findById(fk_cliente);
+                    c.setCliente(cliente);
+                    int pk = rs.getInt(1);
+
+                    String queryPoupanca = "SELECT * FROM Conta_Poupanca WHERE fk_conta_id = ?";
+                    PreparedStatement pst2 = con.prepareStatement(queryPoupanca);
+                    pst2.setInt(1, pk);
+                    ResultSet rs2 = pst2.executeQuery();
+
+                    if (rs2.next()) {
+                        c.setTaxaRendimento(rs2.getDouble("taxa_rendimento"));
+                        DAO.desconectar(con);
+                        return c;
+                    } else {
+                        System.out.println("Erro ao obter fk da conta tipo");
+                        return null;
+                    }
+                } else {
+                    System.out.println("Erro: tipo de conta invalido");
+                    return null;
+                }
+            } else {
+                System.out.println("Erro ao obter a conta");
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    } 
 }
         

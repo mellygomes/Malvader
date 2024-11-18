@@ -10,8 +10,10 @@ import br.com.entidade.ClienteDAO;
 
 public class TesteCliente {
     public static void main(String[] args) throws Exception {
-        Cliente cliente = ClienteDAO.findByCpf("99999");
+        //Cliente cliente = ClienteDAO.findByCpf("99999");
+        Cliente clientelogado = ClienteDAO.findByUser("jiung");
+
         
-        System.out.println(" "+ cliente.getNome_usuario());
+        System.out.println(" "+ clientelogado.getCpf_usuario());
     }
 }

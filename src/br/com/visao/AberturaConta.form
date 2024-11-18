@@ -213,9 +213,6 @@
           <Properties>
             <Property name="columns" type="int" value="4"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTnumContaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRB_poupanca">
           <Properties>

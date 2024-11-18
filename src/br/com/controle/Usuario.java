@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import br.com.entidade.ClienteDAO;
 import br.com.entidade.FuncionarioDAO;
+import br.com.util.SessaoUsuarioLogado;
 
 //@author emanuelly
 public abstract class Usuario {
@@ -83,20 +84,34 @@ public abstract class Usuario {
     }
 
     //métodos
-    public boolean login(char[] senha) {
+    public boolean login(String senha) {
         boolean autenticacao = false;
 
         if (this.tipo_usuario.equals("FUNCIONARIO")) {
             try {
                 Funcionario f = FuncionarioDAO.findByUser(this.user_usuario); //o usuario deve ser setado antes da chamda do metodo
-                autenticacao = (f.getSenha_funcionario().equals(String.valueOf(senha)));
+                autenticacao = (f.getSenha_funcionario().equals(senha));
+                
+                if (autenticacao == true) {
+                    SessaoUsuarioLogado sessao = new SessaoUsuarioLogado();
+                    sessao.setUsuario(f);
+                    sessao.salvarSessao();
+                }
+                
             } catch (Exception e) {
                 return false;
             }
         } else if (this.tipo_usuario.equals("CLIENTE")) {
             try {
                 Cliente c = (Cliente) ClienteDAO.findByUser(this.user_usuario); //o usuario deve ser setado antes da chamda do metodo
-                autenticacao = (c.getSenha_cliente().equals(String.valueOf(senha)));
+                autenticacao = (c.getSenha_cliente().equals(senha));
+                
+                if (autenticacao == true) {
+                    SessaoUsuarioLogado sessao = new SessaoUsuarioLogado();
+                    sessao.setUsuario(c);
+                    sessao.salvarSessao();
+                }
+                
             } catch (Exception e) {
                 return false;
             }

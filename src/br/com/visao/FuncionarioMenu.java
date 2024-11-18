@@ -6,6 +6,17 @@ package br.com.visao;
 
 import javax.swing.JFrame;
 
+//public class UserSingleton {
+//    
+//    static UserSingleton sharedInstance = UserSingleton();
+//    
+//    private UserSingleton() {
+//        
+//    }
+//    
+//    User loggedUser;
+//}
+
 /**
  *
  * @author User
@@ -17,6 +28,8 @@ public class FuncionarioMenu extends javax.swing.JFrame {
      */
     public FuncionarioMenu() {
         initComponents();
+        
+        //UserSingleton.sharedInstance.loggedUser = new User();
     }
 
     /**
@@ -234,7 +247,6 @@ public class FuncionarioMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu_funcMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_funcMenuSelected
-        // TODO add your handling code here:
         FuncionarioMenu f = new FuncionarioMenu();
         f.setVisible(true);
         this.dispose();
@@ -245,10 +257,9 @@ public class FuncionarioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu_funcActionPerformed
 
     private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
-        // TODO add your handling code here:
-        ClienteMenu c = new ClienteMenu();
-        c.setVisible(true);
-        this.dispose();
+//        ClienteMenu c = new ClienteMenu();
+//        c.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_jMenu_clienteMenuSelected
 
     private void jMenu_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_clienteActionPerformed
