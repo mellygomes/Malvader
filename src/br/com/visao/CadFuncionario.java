@@ -424,9 +424,9 @@ public class CadFuncionario extends javax.swing.JFrame {
 
     private void jMenu_clienteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu_clienteMenuSelected
         // TODO add your handling code here:
-        ClienteMenu c = new ClienteMenu();
-        c.setVisible(true);
-        this.dispose();
+//        ClienteMenu c = new ClienteMenu();
+//        c.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_jMenu_clienteMenuSelected
 
     private void jMenu_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_clienteActionPerformed

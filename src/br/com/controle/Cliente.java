@@ -1,6 +1,11 @@
 package br.com.controle;
 
 //@author emanuelly
+
+import br.com.entidade.ContaDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Cliente extends Usuario {
 	
     private String senha_cliente;
@@ -15,7 +20,22 @@ public class Cliente extends Usuario {
 
     //métodos
     public double consultarSaldo() {
-        return 0;
+        double saldo = 0;
+        
+        try {
+            Conta conta = ContaDAO.findByClienteId(this.getId_usuario());
+            if (conta instanceof ContaCorrente) {
+                ContaCorrente cc = (ContaCorrente) conta;
+                saldo = cc.getSaldo_conta();
+            } else if (conta instanceof ContaPoupanca) {
+                ContaPoupanca cp = (ContaPoupanca) conta;
+                saldo = cp.getSaldo_conta();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return saldo;
     }
 
     public void depositar(double valor) {

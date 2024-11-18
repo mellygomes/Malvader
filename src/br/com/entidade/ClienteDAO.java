@@ -125,7 +125,7 @@ public class ClienteDAO {
         Cliente c = new Cliente();
 
         String queryUser = "SELECT * FROM Usuario WHERE user_usuario = ?";		
-        //String queryCliente = "SELECT * FROM Cliente WHERE fk_usuario_id = ?";
+        String queryCliente = "SELECT * FROM Cliente WHERE fk_usuario_id = ?";
 
         try (Connection con = DAO.conectar()) {
             PreparedStatement pst = con.prepareStatement(queryUser);
@@ -133,7 +133,7 @@ public class ClienteDAO {
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                c.setId_usuario(rs.getInt("id_usuario"));
+                int fk = rs.getInt("id_usuario");
                 c.setNome_usuario(rs.getString("nome_usuario"));
                 c.setCpf_usuario(rs.getString("cpf_usuario"));
                 c.setNascimento_usuario(LocalDate.parse(String.valueOf((rs.getDate("nascimento_usuario")))));
@@ -141,8 +141,21 @@ public class ClienteDAO {
                 c.setTipo_usuario(rs.getString("tipo_usuario"));
                 c.setSenha_cliente(rs.getString("senha_usuario"));
                 c.setUser_usuario(rs.getString("user_usuario"));
+                
+                PreparedStatement pst1 = con.prepareStatement(queryCliente);
+                pst1.setInt(1, fk);
+                ResultSet rs1 = pst1.executeQuery();
+                
+                if (rs1.next()) {
+                    c.setId_usuario(rs1.getInt("id_cliente"));
+                } else {
+                    System.out.print("Erro: ao obter cliente");
+                }
+                
+                DAO.desconectar(con);
+                
             } else {
-                System.out.print("Erro: resultset retornou null");
+                System.out.print("Erro: ao obter usuario");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -165,13 +178,14 @@ public class ClienteDAO {
             
             if(rs0.next()) {
                 int key = rs0.getInt("fk_usuario_id");
+                cliente.setId_usuario(rs0.getInt("id_cliente"));
                 
                 PreparedStatement pst1 = con.prepareStatement(queryU);
                 pst1.setInt(1, key);
                 ResultSet rs = pst1.executeQuery();
 
                 if (rs.next()) {
-                    cliente.setId_usuario(rs.getInt("id_usuario"));
+                    int id_usuario = rs.getInt("id_usuario");
                     cliente.setNome_usuario(rs.getString("nome_usuario"));
                     cliente.setCpf_usuario(rs.getString("cpf_usuario"));
                     cliente.setNascimento_usuario(LocalDate.parse(rs.getString("nascimento_usuario")));
@@ -181,7 +195,7 @@ public class ClienteDAO {
                     cliente.setUser_usuario(rs.getString("user_usuario"));
 
                     PreparedStatement pst3 = con.prepareStatement(queryEnd);
-                    pst3.setInt(1, cliente.getId_usuario());
+                    pst3.setInt(1, id_usuario);
                     ResultSet rs3 = pst3.executeQuery();
 
                     if (rs3.next()) {
