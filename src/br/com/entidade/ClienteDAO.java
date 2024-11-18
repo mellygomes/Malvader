@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import br.com.controle.Cliente;
 import br.com.controle.Endereco;
 import br.com.controle.Funcionario;
+import java.util.ArrayList;
 
 public class ClienteDAO {
 	
@@ -88,6 +89,37 @@ public class ClienteDAO {
                 e.printStackTrace();
         }
     }
+    public static ArrayList<Cliente> findByall(String user) throws Exception {
+    ArrayList<Cliente> clientes = new ArrayList<>();
+
+    String queryUser = "SELECT * FROM Usuario WHERE user_usuario = ?";
+    try (Connection con = DAO.conectar()) {
+        PreparedStatement pst = con.prepareStatement(queryUser);
+        pst.setString(1, user);
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) { // Use um loop para adicionar clientes à lista
+            Cliente c = new Cliente();
+            c.setId_usuario(rs.getInt("id_usuario"));
+            c.setNome_usuario(rs.getString("nome_usuario"));
+            c.setCpf_usuario(rs.getString("cpf_usuario"));
+            c.setNascimento_usuario(LocalDate.parse(String.valueOf((rs.getDate("nascimento_usuario")))));
+            c.setTelefone_usuario(rs.getString("telefone_usuario"));
+            c.setTipo_usuario(rs.getString("tipo_usuario"));
+            c.setSenha_cliente(rs.getString("senha_usuario"));
+            c.setUser_usuario(rs.getString("user_usuario"));
+            clientes.add(c); // Adicione o cliente à lista
+        }
+
+        if (clientes.isEmpty()) {
+            System.out.print("Erro: Nenhum cliente encontrado");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return clientes;
+}
 
     public static Cliente findByUser(String user) throws Exception {
         Cliente c = new Cliente();
