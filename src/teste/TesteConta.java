@@ -2,6 +2,7 @@ package teste;
 
 //@author emanu
 import br.com.controle.Cliente;
+import br.com.controle.Conta;
 import br.com.controle.ContaCorrente;
 import br.com.controle.ContaPoupanca;
 import br.com.entidade.ContaDAO;
@@ -11,7 +12,7 @@ public class TesteConta {
 //testando inserir conta
     public static void main(String[] args) throws Exception {
         
-//        Cliente c = new Cliente();
+//          Cliente c = new Cliente();
 //            c.setCpf_usuario("99999");
 //
 //            ContaCorrente cc = new ContaCorrente();
@@ -27,8 +28,14 @@ public class TesteConta {
 //            ContaDAO.save(cc);
 
 
-        ContaCorrente c = (ContaCorrente) ContaDAO.findByClienteId(2);
-        System.out.println(" "+ c.getAgencia_conta());    
+//        ContaCorrente c = (ContaCorrente) ContaDAO.findByClienteId(2);
+//        System.out.println(" "+ c.getAgencia_conta());    
+        
+        ContaCorrente c = new ContaCorrente();
+        c.setNumero_conta(202020);
+        
+        boolean confirma = ContaDAO.delete(c);
+        System.out.println(" "+ confirma);
     
     }
 }

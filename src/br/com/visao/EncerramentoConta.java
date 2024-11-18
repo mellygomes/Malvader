@@ -212,7 +212,8 @@ public class EncerramentoConta extends javax.swing.JFrame {
         System.out.print(" "+ inputSenha);
         
         if (inputSenha != null) {
-            //depois colocar aqui pra comparar com a senha do administrador
+            String senha = JOptionPane.showInputDialog(jPanel1, "Digite a senha para continuar.", "Confimar", JOptionPane.INFORMATION_MESSAGE);
+
             //if (senha == senhaadministrador) {
                 //chamar o delete da conta
             //} else { 

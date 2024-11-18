@@ -136,7 +136,7 @@ public class ContaDAO {
                     c.setCliente(cliente);
                     int pk = rs.getInt(1);
 
-                    String queryCcorrente = "SELECT * FROM Conta_Corrente WHERE fk_conta_id = ?";
+                    String queryCcorrente = "DELETE FROM Conta_Corrente WHERE fk_conta_id = ?";
                     PreparedStatement pst2 = con.prepareStatement(queryCcorrente);
                     pst2.setInt(1, pk);
                     ResultSet rs2 = pst2.executeQuery();
@@ -163,7 +163,7 @@ public class ContaDAO {
                     c.setCliente(cliente);
                     int pk = rs.getInt(1);
 
-                    String queryPoupanca = "SELECT * FROM Conta_Poupanca WHERE fk_conta_id = ?";
+                    String queryPoupanca = "DELETE FROM Conta_Poupanca WHERE fk_conta_id = ?";
                     PreparedStatement pst2 = con.prepareStatement(queryPoupanca);
                     pst2.setInt(1, pk);
                     ResultSet rs2 = pst2.executeQuery();
@@ -266,5 +266,89 @@ public class ContaDAO {
         }
         return null;
     } 
+   
+   public static boolean delete(Conta conta) {
+        boolean confirma = false;
+       
+        String QueryContaSelect = "SELECT * FROM Conta WHERE numero_conta = ?";
+        String QueryContaDelete = "DELETE FROM Conta WHERE id_conta = ?";
+            
+        int key = conta.getNumero_conta();
+        
+        try (Connection con = DAO.conectar()) { 
+            con.setAutoCommit(false);
+            
+            PreparedStatement pst = con.prepareStatement(QueryContaSelect);
+            pst.setInt(1, key);
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                String tipo = rs.getString("tipo_conta");
+                int id = rs.getInt("id_conta");
+                System.out.println(" "+ id);
+                
+                if (tipo.equals("CORRENTE")) {
+                    String QueryTipo = "DELETE FROM Conta_Corrente WHERE fk_conta_id = ?";
+                   
+                    PreparedStatement pst1 = con.prepareStatement(QueryTipo);
+                    pst1.setInt(1, id);
+                    int rows = pst1.executeUpdate();
+                    
+                    if (rows > 0) {
+                        PreparedStatement pst2 = con.prepareStatement(QueryContaDelete);
+                        pst2.setInt(1, id);
+                        int rows1 = pst2.executeUpdate();
+                        
+                        if (rows1 > 0) {
+                            con.commit();
+                            confirma = true;
+                        } else {
+                            System.out.println("Erro ao deletar a conta");
+                            con.rollback();
+                        }
+
+                    } else {
+                        System.out.println("Erro ao deletar conta corrente");
+                        con.rollback();
+                    }
+                    
+                } else if (tipo.equals("POUPANCA")) {
+                    String QueryTipo = "DELETE FROM Conta_Poupanca WHERE fk_conta_id = ?";
+                   
+                    PreparedStatement pst1 = con.prepareStatement(QueryTipo);
+                    pst1.setInt(1, id);
+                    int rows = pst1.executeUpdate();
+                    
+                    if (rows > 0) {
+                        PreparedStatement pst2 = con.prepareStatement(QueryContaDelete);
+                        pst2.setInt(1, key);
+                        int rows1 = pst1.executeUpdate();
+                        
+                        if (rows1 > 0) {
+                            confirma = true;
+                        } else {
+                            System.out.println("Erro ao deletar a conta");
+                            con.rollback();
+                        }
+
+                    } else {
+                        System.out.println("Erro ao deletar conta poupanca");
+                        con.rollback();
+                    }
+                }
+                
+            } else {
+                System.out.println("Erro ao obter tipo da conta");
+                return false;
+            }
+            
+            DAO.desconectar(con);
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return confirma;
+   }
 }
         
