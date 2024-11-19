@@ -245,14 +245,11 @@ public class Login extends javax.swing.JFrame {
             if (login) {                
                 try {
                     Cliente clientelogado = ClienteDAO.findByUser(c.getUser_usuario());
-                    ClienteMenu ftela = new ClienteMenu(clientelogado);
-                    //ftela.setUserlogado(clientelogado); //passar o usuario logado para a proxima tela
-                    
+                    ClienteMenu ftela = new ClienteMenu(clientelogado);                    
                     ftela.setVisible(true);
                     this.dispose();
                     
                 } catch (Exception ex) {
-                    System.out.println("Erro aaaaaaa");
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
