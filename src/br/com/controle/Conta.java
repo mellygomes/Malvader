@@ -44,9 +44,16 @@ public abstract class Conta {
 
     public void depositar(double valor) {
         //implemtar
+         if(valor > 0){
+            this.saldo_conta +=valor; //Gabriel testa para mim? Por favor.
+        }
     }
 
     public boolean sacar(double valor) {
+        if(valor > 0 && valor <= this.saldo_conta){
+            this.saldo_conta -= valor; //Gabriel testa para mim?
+            return true;
+        }
         return false;
         //implemtar
     }
