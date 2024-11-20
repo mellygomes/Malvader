@@ -25,7 +25,7 @@ public class ClienteMenu extends javax.swing.JFrame {
         this.userlogado = user;
         initComponents();
         
-        jLsaudacao.setText("Olá, " + this.userlogado.getNome_usuario());
+//        jLsaudacao.setText("Olá, " + this.userlogado.getNome_usuario());;
         
 //        try {
 //            SessaoUsuarioLogado sessao = new SessaoUsuarioLogado();
@@ -48,8 +48,6 @@ public class ClienteMenu extends javax.swing.JFrame {
 
         BG_cliente = new javax.swing.ButtonGroup();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLsaudacao = new javax.swing.JLabel();
-        jLerro = new javax.swing.JLabel();
         jBsaque = new javax.swing.JButton();
         jBdeposito = new javax.swing.JButton();
         jBconsultar = new javax.swing.JButton();
@@ -63,9 +61,6 @@ public class ClienteMenu extends javax.swing.JFrame {
         jMenu_sair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLsaudacao.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLsaudacao.setForeground(new java.awt.Color(51, 51, 51));
 
         jBsaque.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBsaque.setText("Saque");
@@ -91,6 +86,11 @@ public class ClienteMenu extends javax.swing.JFrame {
         jBlimite.setMaximumSize(new java.awt.Dimension(80, 23));
         jBlimite.setMinimumSize(new java.awt.Dimension(80, 23));
         jBlimite.setName(""); // NOI18N
+        jBlimite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBlimiteActionPerformed(evt);
+            }
+        });
 
         jBsair.setBackground(new java.awt.Color(255, 51, 51));
         jBsair.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -113,8 +113,6 @@ public class ClienteMenu extends javax.swing.JFrame {
             }
         });
 
-        jDesktopPane1.setLayer(jLsaudacao, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLerro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jBsaque, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jBdeposito, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jBconsultar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -128,47 +126,36 @@ public class ClienteMenu extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(30, 30, 30)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLsaudacao, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 206, Short.MAX_VALUE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jBdeposito, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBlimite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(92, 92, 92)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jBconsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBsaque, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBsaque, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(jBsair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(82, 82, 82)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTBmostrarsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(jLsaldo))))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jTBmostrarsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(jLsaldo)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(103, 103, 103)
+                        .addComponent(jBsair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
-                .addComponent(jLsaudacao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addComponent(jLsaldo)
                 .addGap(18, 18, 18)
                 .addComponent(jTBmostrarsaldo)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBdeposito)
                     .addComponent(jBsaque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,11 +163,9 @@ public class ClienteMenu extends javax.swing.JFrame {
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBlimite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBconsultar))
-                .addGap(58, 58, 58)
+                .addGap(18, 18, 18)
                 .addComponent(jBsair)
-                .addGap(38, 38, 38)
-                .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jMenu_func.setText("Funcionário");
@@ -247,8 +232,8 @@ public class ClienteMenu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -313,6 +298,10 @@ public class ClienteMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTBmostrarsaldoActionPerformed
 
+    private void jBlimiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimiteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBlimiteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -332,9 +321,7 @@ public class ClienteMenu extends javax.swing.JFrame {
     private javax.swing.JButton jBsair;
     private javax.swing.JButton jBsaque;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLerro;
     private javax.swing.JLabel jLsaldo;
-    private javax.swing.JLabel jLsaudacao;
     private javax.swing.JMenuBar jMenu;
     private javax.swing.JMenu jMenu_cliente;
     private javax.swing.JMenu jMenu_func;

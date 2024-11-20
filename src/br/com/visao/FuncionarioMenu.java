@@ -51,13 +51,13 @@ public class FuncionarioMenu extends javax.swing.JFrame {
         jRB_cadastro = new javax.swing.JRadioButton();
         jRB_gerar_relatorio = new javax.swing.JRadioButton();
         jRBsair = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jMenu = new javax.swing.JMenuBar();
         jMenu_func = new javax.swing.JMenu();
         jMenu_cliente = new javax.swing.JMenu();
         jMenu_sair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 500));
 
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(600, 500));
 
@@ -123,6 +123,16 @@ public class FuncionarioMenu extends javax.swing.JFrame {
             }
         });
 
+        GB_funcionario.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setText("Alterar Dados");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLerro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jRB_abertura, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -131,18 +141,20 @@ public class FuncionarioMenu extends javax.swing.JFrame {
         jDesktopPane1.setLayer(jRB_cadastro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jRB_gerar_relatorio, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jRBsair, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jRadioButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(449, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(166, 166, 166)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton1)
                     .addComponent(jRBsair)
                     .addComponent(jRB_cadastro)
                     .addComponent(jRB_encerramento)
@@ -151,7 +163,7 @@ public class FuncionarioMenu extends javax.swing.JFrame {
                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel4)
                         .addComponent(jRB_abertura)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,8 +181,10 @@ public class FuncionarioMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRB_gerar_relatorio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRBsair)
-                .addGap(50, 50, 50)
+                .addGap(23, 23, 23)
                 .addComponent(jLerro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
         );
@@ -280,12 +294,19 @@ public class FuncionarioMenu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jRBsairActionPerformed
 
-    private void jRB_aberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_aberturaActionPerformed
+    private void jRB_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_cadastroActionPerformed
         // TODO add your handling code here:
-        AberturaConta a = new AberturaConta();
-        a.setVisible(true);
+        CadFuncionario c = new CadFuncionario();
+        c.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jRB_aberturaActionPerformed
+    }//GEN-LAST:event_jRB_cadastroActionPerformed
+
+    private void jRB_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_consultaActionPerformed
+        // TODO add your handling code here:
+        //        cliente c = new cliente();
+        //        c.setVisible(true);
+        //        this.dispose();
+    }//GEN-LAST:event_jRB_consultaActionPerformed
 
     private void jRB_encerramentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_encerramentoActionPerformed
         EncerramentoConta frame = new EncerramentoConta();
@@ -293,19 +314,19 @@ public class FuncionarioMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jRB_encerramentoActionPerformed
 
-    private void jRB_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_consultaActionPerformed
+    private void jRB_aberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_aberturaActionPerformed
         // TODO add your handling code here:
-//        cliente c = new cliente();
-//        c.setVisible(true);
-//        this.dispose();
-    }//GEN-LAST:event_jRB_consultaActionPerformed
-
-    private void jRB_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_cadastroActionPerformed
-        // TODO add your handling code here:
-        CadFuncionario c = new CadFuncionario();
-        c.setVisible(true);
+        AberturaConta a = new AberturaConta();
+        a.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jRB_cadastroActionPerformed
+    }//GEN-LAST:event_jRB_aberturaActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        AlterarDados a = new AlterarDados();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,5 +379,6 @@ public class FuncionarioMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRB_encerramento;
     private javax.swing.JRadioButton jRB_gerar_relatorio;
     private javax.swing.JRadioButton jRBsair;
+    private javax.swing.JRadioButton jRadioButton1;
     // End of variables declaration//GEN-END:variables
 }

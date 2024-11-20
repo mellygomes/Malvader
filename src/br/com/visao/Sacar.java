@@ -4,17 +4,22 @@
  */
 package br.com.visao;
 
+import br.com.controle.Cliente;
+import br.com.controle.Usuario;
+
 /**
  *
  * @author Maria Eduarda
  */
 public class Sacar extends javax.swing.JFrame {
-
+    private final Cliente userlogado;
     /**
      * Creates new form Sacar
      */
-    public Sacar() {
+    public Sacar(Usuario userlogado) {
+        this.userlogado =(Cliente)userlogado;
         initComponents();
+        
     }
 
     /**
@@ -35,6 +40,7 @@ public class Sacar extends javax.swing.JFrame {
         jLsaldoDisponivel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jLsaldo = new javax.swing.JLabel();
         jMenu = new javax.swing.JMenuBar();
         jMenu_func = new javax.swing.JMenu();
         jMenu_cliente = new javax.swing.JMenu();
@@ -63,9 +69,14 @@ public class Sacar extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Confirmar");
         jButton1.setAlignmentX(0.8F);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLsaldoDisponivel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLsaldoDisponivel.setText("Valor disponível para saque: 0,00 [tem que mostrar o saldo]");
+        jLsaldoDisponivel.setText("Valor disponível para saque: ");
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 153));
 
@@ -78,6 +89,9 @@ public class Sacar extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
+
+        jLsaldo.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLsaldo.setText("0.00");
 
         jMenu_func.setText("Funcionário");
         jMenu_func.addMenuListener(new javax.swing.event.MenuListener() {
@@ -142,11 +156,12 @@ public class Sacar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLsaldoDisponivel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTvalorSaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel2)
+                            .addComponent(jLsaldoDisponivel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTvalorSaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addComponent(jLabel1))
@@ -155,7 +170,7 @@ public class Sacar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +188,9 @@ public class Sacar extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLsaldoDisponivel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLsaldoDisponivel)
+                    .addComponent(jLsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -184,7 +201,7 @@ public class Sacar extends javax.swing.JFrame {
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addComponent(jLabel4)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -232,6 +249,12 @@ public class Sacar extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        jLsaldo.setText(" "+ this.userlogado.consultarSaldo());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +296,7 @@ public class Sacar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLsaldo;
     private javax.swing.JLabel jLsaldoDisponivel;
     private javax.swing.JMenuBar jMenu;
     private javax.swing.JMenu jMenu_cliente;
