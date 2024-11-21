@@ -161,7 +161,7 @@ public class FuncionarioMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu_sairMenuSelected
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Login2 frame = new Login2();
+        Login frame = new Login();
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed

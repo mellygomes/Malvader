@@ -11,10 +11,10 @@ import java.util.logging.Logger;
 import javax.swing.*;
 
 //@author User
-public class Login2 extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
     
     //Creates new form tela
-    public Login2() {
+    public Login() {
         initComponents();
     }
 
@@ -192,7 +192,7 @@ public class Login2 extends javax.swing.JFrame {
                     this.dispose();
                     
                 } catch (Exception ex) {
-                    Logger.getLogger(Login2.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "O login falhou! Verifique a senha e usuário inserido.");
@@ -212,7 +212,7 @@ public class Login2 extends javax.swing.JFrame {
                     this.dispose();
                     
                 } catch (Exception ex) {
-                    Logger.getLogger(Login2.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
             } else {
@@ -239,7 +239,7 @@ public class Login2 extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login2().setVisible(true);
+                new Login().setVisible(true);
             }
         });  
     }

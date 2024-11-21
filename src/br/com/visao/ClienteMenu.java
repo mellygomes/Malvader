@@ -6,14 +6,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
-
+                                                                                                            
 public class ClienteMenu extends javax.swing.JFrame {
     private final Cliente userlogado;
 
-//    public void setUserlogado(Cliente user) {
-//        this.userlogado = user;
-//    }
-   
     public ClienteMenu(Cliente user) {
         this.userlogado = user;
         initComponents();
@@ -238,7 +234,7 @@ public class ClienteMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jBconsultarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Login2 frame = new Login2();
+        Login frame = new Login();
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed

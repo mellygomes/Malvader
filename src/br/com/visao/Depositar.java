@@ -204,7 +204,7 @@ public class Depositar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {  
-            boolean confirma = userlogado.sacar(Double.parseDouble(jTvalorDeposito.getText()));
+            boolean confirma = userlogado.depositar(Double.parseDouble(jTvalorDeposito.getText()));
             if (confirma) {
                 JOptionPane.showMessageDialog(this, "Depósito realizado!");
             } else {
