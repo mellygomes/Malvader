@@ -101,7 +101,7 @@ public class EncerramentoConta extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Voltar");
+        jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -184,27 +184,30 @@ public class EncerramentoConta extends javax.swing.JFrame {
         try {
          
             Conta conta = userlogado.consultarDadosConta(Integer.parseInt(jTnumero.getText()));
-            
-            if (conta instanceof ContaCorrente) {
-                ContaCorrente cc = (ContaCorrente) conta;
-                Cliente cliente = cc.getCliente();
+            if (conta != null) {
                 
-                jLclientenome.setText("Nome: " + cliente.getNome_usuario());
-                jLclientecpf.setText("CPF: " + cliente.getCpf_usuario());
-                jLtipo.setText("Tipo: Poupança");
-                jLsaldo.setText(String.valueOf(cc.getSaldo_conta()));
-                                    
-            } else if (conta instanceof ContaPoupanca) {
-                ContaPoupanca cp = (ContaPoupanca) conta;
-                
-                Cliente cliente = cp.getCliente();
-                
-                jLclientenome.setText("Titular: " + cliente.getNome_usuario());
-                jLclientecpf.setText("CPF: " + cliente.getCpf_usuario());
-                jLtipo.setText("Tipo: Corrente");
-                jLsaldo.setText("Saldo: " + String.valueOf(cp.getSaldo_conta()));
+                if (conta instanceof ContaCorrente) {
+                    ContaCorrente cc = (ContaCorrente) conta;
+                    Cliente cliente = cc.getCliente();
+
+                    jLclientenome.setText("Titular: " + cliente.getNome_usuario());
+                    jLclientecpf.setText("CPF: " + cliente.getCpf_usuario());
+                    jLtipo.setText("Tipo: Poupança");
+                    jLsaldo.setText(String.valueOf(cc.getSaldo_conta()));
+
+                } else if (conta instanceof ContaPoupanca) {
+                    ContaPoupanca cp = (ContaPoupanca) conta;
+
+                    Cliente cliente = cp.getCliente();
+
+                    jLclientenome.setText("Titular: " + cliente.getNome_usuario());
+                    jLclientecpf.setText("CPF: " + cliente.getCpf_usuario());
+                    jLtipo.setText("Tipo: Corrente");
+                    jLsaldo.setText("Saldo: " + String.valueOf(cp.getSaldo_conta()));
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Conta não encontrada", "Uma conta com o número informado não existe", JOptionPane.ERROR_MESSAGE);
             }
-            
             
         } catch (Exception ex) {
             Logger.getLogger(EncerramentoConta.class.getName()).log(Level.SEVERE, null, ex);
@@ -212,20 +215,22 @@ public class EncerramentoConta extends javax.swing.JFrame {
     }//GEN-LAST:event_jBbuscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String inputSenha = JOptionPane.showInputDialog(jPanel1, "Digite a senha de administrador para encerrra a conta", 
-            "Confirmar o encerramento de conta", JOptionPane.INFORMATION_MESSAGE);
-        System.out.print(" "+ inputSenha);
-        
-        if (inputSenha != null) {
-            String senha = JOptionPane.showInputDialog(jPanel1, "Digite a senha para continuar.", "Confimar", JOptionPane.INFORMATION_MESSAGE);
+        Object[] options = {"Encerrar conta","Cancelar"};
+        int n = JOptionPane.showOptionDialog(this,
+            "Atenção! Todos os registros da conta serão permanentemente excluídos.",
+            "Confirmar encerrmento da conta",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.DEFAULT_OPTION,
+            null,
+            options,
+            options[1]);
 
-            //if (senha == senhaadministrador) {
-                ContaDAO.delete(Integer.valueOf(jTnumero.getText()));
-            //} else { 
-            //erro senha incorreta
-            //}
-        } else {
-            JOptionPane.showMessageDialog(jPanel1, "O campo não deve estar vazio!", "Campo vazio inválido!", JOptionPane.ERROR_MESSAGE);
+        if (n == 0) {
+            ContaDAO.delete(Integer.parseInt(jTnumero.getText()));
+            JOptionPane.showMessageDialog(this, "A conta foi encerrada e deletada.");
+            FuncionarioMenu frame = new FuncionarioMenu(userlogado);
+            frame.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

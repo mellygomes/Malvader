@@ -128,21 +128,21 @@ public class ContaAlterar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//  try {
-//    ContaCorrente c = new ContaCorrente();
-//    ContaDAO b = new ContaDAO();
-//    c.setNumero_conta(Integer.valueOf(jTidconta.getText())); 
-//    jTlimite.setText(String.valueOf(c.getLimite())); 
-//    jTdatavencimento.setText(c.getDataVencimento().toString()); 
-//    b.editarContaCorrente(c);
-//    
-//    jTlimite.setText("");
-//    jTdatavencimento.setText("");
-//    jTidconta.setText("");
-//    jTidconta.requestFocus();
-//} catch (Exception e) {
-//    System.out.println("Erro: " + e.getMessage());
-//}
+//        try {
+//          ContaCorrente c = new ContaCorrente();
+//          ContaDAO b = new ContaDAO();
+//          c.setNumero_conta(Integer.valueOf(jTidconta.getText())); 
+//          jTlimite.setText(String.valueOf(c.getLimite())); 
+//          jTdatavencimento.setText(c.getDataVencimento().toString()); 
+//          b.editarContaCorrente(c);
+//
+//          jTlimite.setText("");
+//          jTdatavencimento.setText("");
+//          jTidconta.setText("");
+//          jTidconta.requestFocus();
+//      } catch (Exception e) {
+//          System.out.println("Erro: " + e.getMessage());
+//      }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -5,8 +5,10 @@
 package br.com.visao;
 
 import br.com.controle.Cliente;
+import br.com.controle.Conta;
 import br.com.controle.Funcionario;
 import br.com.entidade.ClienteDAO;
+import br.com.entidade.ContaDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -57,7 +59,7 @@ public class ConsultaClientes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "CPF", "Nascimento"
+                "ID", "Nome", "CPF", "Nº conta", "Tipo"
             }
         ));
         jScrollPane1.setViewportView(jTable);
@@ -119,8 +121,20 @@ public class ConsultaClientes extends javax.swing.JFrame {
             ArrayList<Cliente> clientes = ClienteDAO.findAll(); // Substitua "username" pelo valor real. 
             for (int i = 0; i < clientes.size(); i++) {                
                 Cliente c = clientes.get(i);
+                Conta conta = ContaDAO.findByClienteId(c.getId_usuario());
+                String n_conta;
+                String tipo;
+                        
+                if (conta != null) {
+                    n_conta = String.valueOf(conta.getNumero_conta());
+                    tipo = conta.getTipo_conta();
+                } else {
+                    n_conta = "Não aberta";
+                    tipo = "---";
+                }
+                               
                 usuariopesque.addRow(new Object[]{c.getId_usuario(),c.getNome_usuario(),
-                    c.getCpf_usuario(),c.getNascimento_usuario()});
+                    c.getCpf_usuario(), n_conta, tipo});
                     }
                 }
             }

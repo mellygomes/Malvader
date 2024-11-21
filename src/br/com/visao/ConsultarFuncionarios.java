@@ -125,7 +125,7 @@ public class ConsultarFuncionarios extends javax.swing.JFrame {
             for (int i = 0; i < clientes.size(); i++) {                
                 Funcionario c = clientes.get(i);
                 usuariopesque.addRow(new Object[]{c.getId_usuario(),c.getNome_usuario(),
-                    c.getCpf_usuario(),c.getNascimento_usuario()});
+                    c.getCpf_usuario(),c.getCargo()});
                     }
                 }
             }

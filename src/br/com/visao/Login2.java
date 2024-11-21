@@ -230,9 +230,9 @@ public class Login2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jBloginActionPerformed
     
     private void jBcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcadastrarActionPerformed
-//        CadCliente cad = new CadCliente();
-//        cad.setVisible(true);
-//        this.dispose();
+        CadCliente cad = new CadCliente();
+        cad.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jBcadastrarActionPerformed
 
     //@param args the command line arguments

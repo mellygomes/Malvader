@@ -24,13 +24,18 @@ public class Cliente extends Usuario {
         
         try {
             Conta conta = ContaDAO.findByClienteId(this.getId_usuario());
-            if (conta instanceof ContaCorrente) {
-                ContaCorrente cc = (ContaCorrente) conta;
-                saldo = cc.getSaldo_conta();
-            } else if (conta instanceof ContaPoupanca) {
-                ContaPoupanca cp = (ContaPoupanca) conta;
-                saldo = cp.getSaldo_conta();
+            if (conta != null) {
+                if (conta instanceof ContaCorrente) {
+                    ContaCorrente cc = (ContaCorrente) conta;
+                    saldo = cc.getSaldo_conta();
+                } else if (conta instanceof ContaPoupanca) {
+                    ContaPoupanca cp = (ContaPoupanca) conta;
+                    saldo = cp.getSaldo_conta();
+                }
+            } else {
+                return -1;
             }
+        
         } catch (Exception ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }

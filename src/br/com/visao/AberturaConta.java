@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
+import javax.swing.JOptionPane;
     
 
 /**
@@ -338,10 +339,11 @@ public class AberturaConta extends javax.swing.JFrame {
                 cc.setCliente(ClienteDAO.findByCpf(jTcpf.getText()));
                
                 f.abrirConta(cc);
-                jTdatavencimento.setText("");
-                jTnumConta.setText("");
-                jTlimite.setText("");
-                jTagencia.setText("");
+
+                JOptionPane.showMessageDialog(this, "COnta berta com sucesso!");
+                FuncionarioMenu frame = new FuncionarioMenu(f);
+                frame.setVisible(true);
+                this.dispose();
 
             }catch(Exception ex) {
                 Logger.getLogger(AberturaConta.class.getName()).log(Level.SEVERE, null, ex);
@@ -360,11 +362,11 @@ public class AberturaConta extends javax.swing.JFrame {
               
                 f.abrirConta(cp);
 
-                jTtaxarendimento.setText("");
-                jTnumConta.setText("");
-                jTagencia.setText("");
-                    
-          
+                JOptionPane.showMessageDialog(this, "COnta berta com sucesso!");
+                FuncionarioMenu frame = new FuncionarioMenu(f);
+                frame.setVisible(true);
+                this.dispose();
+      
             }catch(Exception ex) {
                 Logger.getLogger(AberturaConta.class.getName()).log(Level.SEVERE, null, ex);
             }

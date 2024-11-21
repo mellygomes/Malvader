@@ -100,14 +100,15 @@ public class ClienteDAO {
         ResultSet rs = pst.executeQuery();
 
         while (rs.next()) { // Use um loop para adicionar clientes à lista
+            Cliente c = new Cliente();
             int id = rs.getInt("fk_usuario_id");
+            c.setId_usuario(rs.getInt("id_cliente"));
+            
             PreparedStatement pst1 = con.prepareStatement(queryUser);
             pst1.setInt(1, id);
             ResultSet rs1 = pst1.executeQuery();  
             
             while (rs1.next()) {
-                Cliente c = new Cliente();
-                c.setId_usuario(rs1.getInt("id_usuario"));
                 c.setNome_usuario(rs1.getString("nome_usuario"));
                 c.setCpf_usuario(rs1.getString("cpf_usuario"));
                 c.setNascimento_usuario(LocalDate.parse(String.valueOf((rs1.getDate("nascimento_usuario")))));

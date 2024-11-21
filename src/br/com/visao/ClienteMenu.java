@@ -2,17 +2,10 @@ package br.com.visao;
 
 //@author User
 import br.com.controle.Cliente;
-import br.com.controle.Funcionario;
-import br.com.controle.Usuario;
-import br.com.util.SessaoUsuarioLogado;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class ClienteMenu extends javax.swing.JFrame {
     private final Cliente userlogado;
@@ -88,6 +81,7 @@ public class ClienteMenu extends javax.swing.JFrame {
 
         jLsaldo.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLsaldo.setForeground(new java.awt.Color(51, 0, 51));
+        jLsaldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLsaldo.setText("XXX");
 
         jTBmostrarsaldo.setText("Mostrar saldo");
@@ -117,13 +111,6 @@ public class ClienteMenu extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLsaudacao, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTBmostrarsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jLsaldo))))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jBdeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
@@ -131,7 +118,13 @@ public class ClienteMenu extends javax.swing.JFrame {
                             .addComponent(jBconsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBsair, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
-                        .addComponent(jBsaque, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jBsaque, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jTBmostrarsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(jLsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -207,8 +200,16 @@ public class ClienteMenu extends javax.swing.JFrame {
             String senha = JOptionPane.showInputDialog(jDesktopPane1, "Digite a senha de"
                 + "usuário para vizializar o saldo.", "Confirmar usuário.", JOptionPane.INFORMATION_MESSAGE);
                 
-            if (this.userlogado.login(senha)) {                
-                jLsaldo.setText(" "+ this.userlogado.consultarSaldo());
+            if (this.userlogado.login(senha)) {  
+                Double saldo = this.userlogado.consultarSaldo();
+                if (saldo >= 0) {
+                    jLsaldo.setText(" "+ saldo);
+                    jTBmostrarsaldo.setText("Ocultar saldo");
+                } else {
+                    jLsaldo.setText("Você ainda não possui uma conta :(");
+                }
+                
+                jLsaldo.setText(" "+ saldo);
                 jTBmostrarsaldo.setText("Ocultar saldo");
             } else {
                 JOptionPane.showMessageDialog(jDesktopPane1, "Senha incorreta!", "Tente novamente.", JOptionPane.ERROR);

@@ -136,7 +136,7 @@ public class ContaDAO {
                     c.setCliente(cliente);
                     int pk = rs.getInt(1);
 
-                    String queryCcorrente = "DELETE FROM Conta_Corrente WHERE fk_conta_id = ?";
+                    String queryCcorrente = "SELECT * FROM Conta_Corrente WHERE fk_conta_id = ?";
                     PreparedStatement pst2 = con.prepareStatement(queryCcorrente);
                     pst2.setInt(1, pk);
                     ResultSet rs2 = pst2.executeQuery();
@@ -163,7 +163,7 @@ public class ContaDAO {
                     c.setCliente(cliente);
                     int pk = rs.getInt(1);
 
-                    String queryPoupanca = "DELETE FROM Conta_Poupanca WHERE fk_conta_id = ?";
+                    String queryPoupanca = "SELECT * FROM Conta_Poupanca WHERE fk_conta_id = ?";
                     PreparedStatement pst2 = con.prepareStatement(queryPoupanca);
                     pst2.setInt(1, pk);
                     ResultSet rs2 = pst2.executeQuery();
